@@ -5,7 +5,7 @@ const refs = {
   message: document.querySelector('.feedback-form textarea'),
 };
 const STORAGE_KEY = 'feedback-form-state';
-const formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
 
 refs.form.addEventListener('input', throttle(onFormDataInput, 500));
 refs.form.addEventListener('submit', onFormSubmit);
@@ -23,6 +23,7 @@ function onFormSubmit(evt) {
     evt.currentTarget.reset();
     console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
     localStorage.removeItem(STORAGE_KEY);
+    formData = {};
   } else {
     alert('Email and message must not be empty');
   }
