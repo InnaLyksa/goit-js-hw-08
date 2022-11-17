@@ -24,7 +24,7 @@ function onFormSubmit(evt) {
     console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
     localStorage.removeItem(STORAGE_KEY);
   } else {
-    alert('Email or message must not be empty');
+    alert('Email and message must not be empty');
   }
 }
 
